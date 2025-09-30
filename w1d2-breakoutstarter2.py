@@ -9,7 +9,7 @@ def in_stock_names(cart: List[Dict]) -> List[str]:
 
 def totals_over(cart: List[Dict], min_total: float) -> List[float]:
     """
-    Return the list of extended prices (price * qty) for in-stock items whose total >= min_total.
+    Return the list of product names for in-stock items whose total value (price*qty) >= min_total.
     Must use a single list comprehension.
     """
     return []
@@ -24,4 +24,3 @@ if __name__ == "__main__":
 
     print(in_stock_names(cart))
     print(totals_over(cart, 10))
-    print(sale_labels(cart, {"grocery"}))
