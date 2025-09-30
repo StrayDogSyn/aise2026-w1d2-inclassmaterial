@@ -12,18 +12,13 @@ def has_items(lst: List[int]) -> bool:
     Returns:
         True if the list length is greater than zero, else False.
     """
-    if len(lst) > 0:
-        return True
-    else:
-        return False
-
-# TODO: Simplify using truthy/falsy check (e.g., return bool(lst))
+    return bool(lst)
 
 
 # 2. Ternary Operator
 def absolute_value(n: int) -> int:
     """
-    Return the absolute value of the integer n using explicit if/else.
+    Return the absolute value of the integer n using ternary operator.
 
     Args:
         n: An integer.
@@ -31,13 +26,7 @@ def absolute_value(n: int) -> int:
     Returns:
         The non-negative magnitude of n.
     """
-    if n >= 0:
-        result = n
-    else:
-        result = -n
-    return result
-
-# TODO: Collapse into a single line using a ternary expression.
+    return n if n >= 0 else -n
 
 
 # 3. Walrus
@@ -54,19 +43,15 @@ def read_non_empty_lines(file: TextIO) -> None:
     Returns:
         None. Lines that are not blank and not starting with '#' are printed.
     """
-    line = file.readline()
-    while line != "":
+    while (line := file.readline()) != "":
         if line.strip() != "" and not line.startswith("#"):
             print(line.rstrip("\n"))
-        line = file.readline()
-
-# TODO: Use the walrus operator (:=) to combine assignment and loop condition.
 
 
 # 4. Match Case
 def day_name(num: int) -> str:
     """
-    Map a 1–7 integer to the corresponding weekday name using if/elif/else.
+    Map a 1–7 integer to the corresponding weekday name using match/case.
 
     Args:
         num: Integer day number where 1=Monday and 7=Sunday.
@@ -74,24 +59,23 @@ def day_name(num: int) -> str:
     Returns:
         The weekday name for 1–7, otherwise "Invalid".
     """
-    if num == 1:
-        return "Monday"
-    elif num == 2:
-        return "Tuesday"
-    elif num == 3:
-        return "Wednesday"
-    elif num == 4:
-        return "Thursday"
-    elif num == 5:
-        return "Friday"
-    elif num == 6:
-        return "Saturday"
-    elif num == 7:
-        return "Sunday"
-    else:
-        return "Invalid"
-
-# TODO: Replace with match/case for cleaner multi-branching.
+    match num:
+        case 1:
+            return "Monday"
+        case 2:
+            return "Tuesday"
+        case 3:
+            return "Wednesday"
+        case 4:
+            return "Thursday"
+        case 5:
+            return "Friday"
+        case 6:
+            return "Saturday"
+        case 7:
+            return "Sunday"
+        case _:
+            return "Invalid"
 
 
 if __name__ == "__main__":

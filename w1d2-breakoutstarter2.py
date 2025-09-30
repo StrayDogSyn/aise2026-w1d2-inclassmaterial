@@ -5,14 +5,14 @@ def in_stock_names(cart: List[Dict]) -> List[str]:
     Return the list of item names that are in stock and have qty > 0.
     Must use a single list comprehension.
     """
-    return []
+    return [item["name"] for item in cart if item["in_stock"] and item["qty"] > 0]
 
-def totals_over(cart: List[Dict], min_total: float) -> List[float]:
+def totals_over(cart: List[Dict], min_total: float) -> List[str]:
     """
     Return the list of product names for in-stock items whose total value (price*qty) >= min_total.
     Must use a single list comprehension.
     """
-    return []
+    return [item["name"] for item in cart if item["in_stock"] and (item["price"] * item["qty"]) >= min_total]
 
 if __name__ == "__main__":
     cart = [
